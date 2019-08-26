@@ -1,0 +1,276 @@
+CREATE TABLE CAR(
+  id int,
+  name varchar(100),
+  company varchar(100),
+  country varchar(100),
+  approx_price float
+  );
+  
+table CAR created.
+
+insert into car values(1,'Beat','Cheverolet','USA',4.0);
+insert into car values(2,'Swift','Maruti Suzuki','Japan',6.0);
+insert into car values(3,'Escode','Ford','USA',4.2);
+insert into car values(4,'Sunny','Nissan','Japan',8.0);
+insert into car values(5,'Beatel','Volks Vagon','Germany',21.0);
+insert into car values(6,'Etios','Toyota','Japan',7.2);
+insert into car values(7,'Sale','Cheverolet','USA',5.0);
+insert into car values(8,'Aria','Aria','India',7.0);
+insert into car values(9,'Passat','Volks Vagon','Germany',25.0);
+insert into car values(10,'SX4','Maruti Suzuki','Japan',6.7);
+select * from car;
+
+1 rows inserted.
+1 rows inserted.
+1 rows inserted.
+1 rows inserted.
+1 rows inserted.
+1 rows inserted.
+1 rows inserted.
+1 rows inserted.
+1 rows inserted.
+1 rows inserted.
+        ID NAME                                                                                                 COMPANY                                                                                              COUNTRY                                                                                              APPROX_PRICE
+---------- ---------------------------------------------------------------------------------------------------- ---------------------------------------------------------------------------------------------------- ---------------------------------------------------------------------------------------------------- ------------
+         1 Beat                                                                                                 Cheverolet                                                                                           USA                                                                                                             4 
+         2 Swift                                                                                                Maruti Suzuki                                                                                        Japan                                                                                                           6 
+         3 Escode                                                                                               Ford                                                                                                 USA                                                                                                           4.2 
+         4 Sunny                                                                                                Nissan                                                                                               Japan                                                                                                           8 
+         5 Beatel                                                                                               Volks Vagon                                                                                          Germany                                                                                                        21 
+         6 Etios                                                                                                Toyota                                                                                               Japan                                                                                                         7.2 
+         7 Sale                                                                                                 Cheverolet                                                                                           USA                                                                                                             5 
+         8 Aria                                                                                                 Aria                                                                                                 India                                                                                                           7 
+         9 Passat                                                                                               Volks Vagon                                                                                          Germany                                                                                                        25 
+        10 SX4                                                                                                  Maruti Suzuki                                                                                        Japan                                                                                                         6.7 
+
+ 10 rows selected 
+ 
+select distinct company from car;
+ 
+COMPANY                                                                                            
+----------------------------------------------------------------------------------------------------
+Nissan                                                                                               
+Maruti Suzuki                                                                                        
+Ford                                                                                                 
+Volks Vagon                                                                                          
+Toyota                                                                                               
+Aria                                                                                                 
+Cheverolet                                                                                           
+
+ 7 rows selected 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ select distinct country from car;
+ COUNTRY                                                                                            
+----------------------------------------------------------------------------------------------------
+USA                                                                                                  
+Germany                                                                                              
+India                                                                                                
+Japan                                                                                                
+
+
+
+
+
+
+
+select * from car
+where approx_price between 4.0 and 7.0;
+        ID NAME                                                                                                 COMPANY                                                                                              COUNTRY                                                                                              APPROX_PRICE
+---------- ---------------------------------------------------------------------------------------------------- ---------------------------------------------------------------------------------------------------- ---------------------------------------------------------------------------------------------------- ------------
+         1 Beat                                                                                                 Cheverolet                                                                                           USA                                                                                                             4 
+         2 Swift                                                                                                Maruti Suzuki                                                                                        Japan                                                                                                           6 
+         3 Escode                                                                                               Ford                                                                                                 USA                                                                                                           4.2 
+         7 Sale                                                                                                 Cheverolet                                                                                           USA                                                                                                             5 
+         8 Aria                                                                                                 Aria                                                                                                 India                                                                                                           7 
+        10 SX4                                                                                                  Maruti Suzuki                                                                                        Japan                                                                                                         6.7 
+
+ 6 rows selected 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ select name,company from car
+where country = 'Japan' and approx_price<=6.0;
+NAME                                                                                                 COMPANY                                                                                            
+---------------------------------------------------------------------------------------------------- ----------------------------------------------------------------------------------------------------
+Swift                                                                                                Maruti Suzuki                                                                                        
+
+
+
+
+
+
+
+
+
+
+select name,company from car
+where company = 'Nissan' or approx_price>20.0;
+NAME                                                                                                 COMPANY                                                                                            
+---------------------------------------------------------------------------------------------------- ----------------------------------------------------------------------------------------------------
+Sunny                                                                                                Nissan                                                                                               
+Beatel                                                                                               Volks Vagon                                                                                          
+Passat                                                                                               Volks Vagon                                                                                          
+
+
+
+
+
+
+select name from car
+where company IN('Maruti Suzuki','Ford');
+NAME                                                                                               
+----------------------------------------------------------------------------------------------------
+Swift                                                                                                
+Escode                                                                                               
+SX4                                 
+
+
+
+
+
+
+
+
+
+Alter table car add model_year int;
+update car
+set model_year = 2010
+where id between 1 and 10;
+SELECT * FROM car;
+
+ 10 rows selected 
+
+10 rows updated.
+        ID NAME                                                                                                 COMPANY                                                                                              COUNTRY                                                                                              APPROX_PRICE MODEL_YEAR
+---------- ---------------------------------------------------------------------------------------------------- ---------------------------------------------------------------------------------------------------- ---------------------------------------------------------------------------------------------------- ------------ ----------
+         1 Beat                                                                                                 Cheverolet                                                                                           USA                                                                                                             4       2010 
+         2 Swift                                                                                                Maruti Suzuki                                                                                        Japan                                                                                                           6       2010 
+         3 Escode                                                                                               Ford                                                                                                 USA                                                                                                           4.2       2010 
+         4 Sunny                                                                                                Nissan                                                                                               Japan                                                                                                           8       2010 
+         5 Beatel                                                                                               Volks Vagon                                                                                          Germany                                                                                                        21       2010 
+         6 Etios                                                                                                Toyota                                                                                               Japan                                                                                                         7.2       2010 
+         7 Sale                                                                                                 Cheverolet                                                                                           USA                                                                                                             5       2010 
+         8 Aria                                                                                                 Aria                                                                                                 India                                                                                                           7       2010 
+         9 Passat                                                                                               Volks Vagon                                                                                          Germany                                                                                                        25       2010 
+        10 SX4                                                                                                  Maruti Suzuki                                                                                        Japan                                                                                                         6.7       2010 
+
+ 10 rows selected 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ select name  as car_name from car;
+ CAR_NAME                                                                                           
+----------------------------------------------------------------------------------------------------
+Beat                                                                                                 
+Swift                                                                                                
+Escode                                                                                               
+Sunny                                                                                                
+Beatel                                                                                               
+Etios                                                                                                
+Sale                                                                                                 
+Aria                                                                                                 
+Passat                                                                                               
+SX4    
+
+
+
+
+
+
+
+alter table car
+rename column name to car_name;
+select * from car;
+table CAR altered.
+        ID CAR_NAME                                                                                             COMPANY                                                                                              COUNTRY                                                                                              APPROX_PRICE MODEL_YEAR
+---------- ---------------------------------------------------------------------------------------------------- ---------------------------------------------------------------------------------------------------- ---------------------------------------------------------------------------------------------------- ------------ ----------
+         1 Beat                                                                                                 Cheverolet                                                                                           USA                                                                                                             4       2010 
+         2 Swift                                                                                                Maruti Suzuki                                                                                        Japan                                                                                                           6       2010 
+         3 Escode                                                                                               Ford                                                                                                 USA                                                                                                           4.2       2010 
+         4 Sunny                                                                                                Nissan                                                                                               Japan                                                                                                           8       2010 
+         5 Beatel                                                                                               Volks Vagon                                                                                          Germany                                                                                                        21       2010 
+         6 Etios                                                                                                Toyota                                                                                               Japan                                                                                                         7.2       2010 
+         7 Sale                                                                                                 Cheverolet                                                                                           USA                                                                                                             5       2010 
+         8 Aria                                                                                                 Aria                                                                                                 India                                                                                                           7       2010 
+         9 Passat                                                                                               Volks Vagon                                                                                          Germany                                                                                                        25       2010 
+        10 SX4                                                                                                  Maruti Suzuki                                                                                        Japan                                                                                                         6.7       2010 
+
+ 10 rows selected 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ select car_name as car_toyota from car 
+where company = 'Toyota';
+
+CAR_TOYOTA                                                                                         
+----------------------------------------------------------------------------------------------------
+Etios                                                                                                
+
+
+
+
+
+
+select * from car
+order by car_name;
+
+        ID CAR_NAME                                                                                             COMPANY                                                                                              COUNTRY                                                                                              APPROX_PRICE MODEL_YEAR
+---------- ---------------------------------------------------------------------------------------------------- ---------------------------------------------------------------------------------------------------- ---------------------------------------------------------------------------------------------------- ------------ ----------
+         8 Aria                                                                                                 Aria                                                                                                 India                                                                                                           7       2010 
+         1 Beat                                                                                                 Cheverolet                                                                                           USA                                                                                                             4       2010 
+         5 Beatel                                                                                               Volks Vagon                                                                                          Germany                                                                                                        21       2010 
+         3 Escode                                                                                               Ford                                                                                                 USA                                                                                                           4.2       2010 
+         6 Etios                                                                                                Toyota                                                                                               Japan                                                                                                         7.2       2010 
+         9 Passat                                                                                               Volks Vagon                                                                                          Germany                                                                                                        25       2010 
+        10 SX4                                                                                                  Maruti Suzuki                                                                                        Japan                                                                                                         6.7       2010 
+         7 Sale                                                                                                 Cheverolet                                                                                           USA                                                                                                             5       2010 
+         4 Sunny                                                                                                Nissan                                                                                               Japan                                                                                                           8       2010 
+         2 Swift                                                                                                Maruti Suzuki                                                                                        Japan                                                                                                           6       2010 
+
+
+
+
+
+
+
+
+
+select * from car
+order by approx_price;
+        ID CAR_NAME                                                                                             COMPANY                                                                                              COUNTRY                                                                                              APPROX_PRICE MODEL_YEAR
+---------- ---------------------------------------------------------------------------------------------------- ---------------------------------------------------------------------------------------------------- ---------------------------------------------------------------------------------------------------- ------------ ----------
+         1 Beat                                                                                                 Cheverolet                                                                                           USA                                                                                                             4       2010 
+         3 Escode                                                                                               Ford                                                                                                 USA                                                                                                           4.2       2010 
+         7 Sale                                                                                                 Cheverolet                                                                                           USA                                                                                                             5       2010 
+         2 Swift                                                                                                Maruti Suzuki                                                                                        Japan                                                                                                           6       2010 
+        10 SX4                                                                                                  Maruti Suzuki                                                                                        Japan                                                                                                         6.7       2010 
+         8 Aria                                                                                                 Aria                                                                                                 India                                                                                                           7       2010 
+         6 Etios                                                                                                Toyota                                                                                               Japan                                                                                                         7.2       2010 
+         4 Sunny                                                                                                Nissan                                                                                               Japan                                                                                                           8       2010 
+         5 Beatel                                                                                               Volks Vagon                                                                                          Germany                                                                                                        21       2010 
+         9 Passat                                                                                               Volks Vagon                                                                                          Germany                                                                                                        25       2010 
+
+ 10 rows selected
+
